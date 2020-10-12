@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "finn"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "3.9.0"
+fake_useragent = "^0.1.11"
+requests-html = "^0.10.0"
+tqdm = "^4.50.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
