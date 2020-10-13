@@ -3,6 +3,7 @@ import os
 import re
 from operator import itemgetter
 from pathlib import Path
+from time import sleep
 
 from requests import HTTPError
 from tqdm import tqdm
@@ -11,6 +12,7 @@ from conf import BASE_DATA_PATH, session, ua, BASE_SEARCH_QUERY_DATA_PATH
 from pipeline.types import ArticlePreScraping
 
 BASE_ARTICLE_DATA_PATH = BASE_DATA_PATH / "raw_articles"
+REASONABLE_WAITING_TIME = 1  # Seconds
 
 
 def _download_article(article: ArticlePreScraping):
@@ -52,6 +54,7 @@ def download_articles():
     for raw_article in tqdm(articles_to_scrape):
         article = ArticlePreScraping(url=raw_article.get("adUrl"))
         _download_article(article=article)
+        sleep(REASONABLE_WAITING_TIME)
 
 
 if __name__ == '__main__':
